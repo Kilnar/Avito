@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.text.*?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="433.9998779296875" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.MainController">
   <children>
@@ -19,8 +13,8 @@
             <MenuItem mnemonicParsing="false" text="Action 2" />
           </items>
         </SplitMenuButton>
+        <ListView fx:id="ads" layoutX="0.0" layoutY="68.0" prefHeight="492.0" prefWidth="434.0" />
         <Button layoutX="333.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.9609375" prefWidth="80.0" text="Фильтры" />
-        <ListView layoutX="0.0" layoutY="68.0" prefHeight="492.0" prefWidth="434.0" />
       </children>
     </Pane>
   </children>

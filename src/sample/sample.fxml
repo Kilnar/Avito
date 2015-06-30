@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -17,9 +18,11 @@
    <children>
       <Pane prefHeight="272.0" prefWidth="291.0" GridPane.columnIndex="1">
          <children>
-            <Label fx:id="helloWorld" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="94.0" prefHeight="90.0" prefWidth="153.0" text="Hello World!!" />
+            <Label fx:id="helloWorld" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="94.0" prefHeight="90.0" prefWidth="153.0" text="Hello World!!" textAlignment="CENTER" textFill="#ff0808" textOverrun="WORD_ELLIPSIS" underline="true">
+               <padding>
+                  <Insets left="6.0" />
+               </padding></Label>
          </children>
       </Pane>
-      <Button mnemonicParsing="false" text="Button" textAlignment="CENTER" />
    </children>
 </GridPane>

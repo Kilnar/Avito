@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="433.9998779296875" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.MainController">
+  <children>
+    <Pane layoutX="0.0" layoutY="-7.0" prefHeight="560.0" prefWidth="434.0">
+      <children>
+        <SplitMenuButton layoutX="14.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.9609375" prefWidth="151.0" text="Вкладки">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+          </items>
+        </SplitMenuButton>
+        <ListView fx:id="listView" layoutX="0.0" layoutY="68.0" prefHeight="492.0" prefWidth="434.0" />
+        <Button layoutX="333.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.9609375" prefWidth="80.0" text="Фильтры" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

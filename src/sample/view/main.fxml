@@ -13,7 +13,7 @@
             <MenuItem mnemonicParsing="false" text="Action 2" />
           </items>
         </SplitMenuButton>
-        <ListView fx:id="ads" layoutX="0.0" layoutY="68.0" prefHeight="492.0" prefWidth="434.0" />
+        <ListView fx:id="listView" layoutX="0.0" layoutY="68.0" prefHeight="492.0" prefWidth="434.0" />
         <Button layoutX="333.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.9609375" prefWidth="80.0" text="Фильтры" />
       </children>
     </Pane>

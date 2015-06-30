@@ -6,12 +6,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" hgap="10.0" prefHeight="413.0" prefWidth="335.00019999999495" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.controllers.Controller">
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="413.0" prefWidth="374.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.FilterController">
   <children>
-    <AnchorPane prefHeight="402.0" prefWidth="326.000244140625" GridPane.columnIndex="0" GridPane.rowIndex="0">
+    <AnchorPane prefHeight="402.0" prefWidth="359.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
       <children>
-        <Button fx:id="toSearch" layoutX="225.0" layoutY="361.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="68.0" text="Искать" />
-        <ChoiceBox fx:id="citiescategory" layoutX="104.0" layoutY="73.0" prefHeight="26.999908447265625" prefWidth="189.0">
+        <Button fx:id="toSearch" layoutX="261.0" layoutY="361.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="68.0" text="Искать" />
+        <ChoiceBox fx:id="citiescategory" layoutX="140.0" layoutY="74.0" prefHeight="26.999908447265625" prefWidth="189.0">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Москва^fff" />
@@ -27,7 +27,7 @@
           </font>
         </Text>
         <Text fx:id="categories" font="$x1" layoutX="17.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Категория:" />
-        <ChoiceBox id="subcategory" fx:id="category" layoutX="104.0" layoutY="117.0" prefHeight="27.0" prefWidth="189.0">
+        <ChoiceBox id="subcategory" fx:id="category" layoutX="140.0" layoutY="114.0" prefHeight="27.0" prefWidth="189.0">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Недвижимоddсть" />
@@ -37,7 +37,7 @@
           </items>
         </ChoiceBox>
         <Text fx:id="scategory" layoutX="17.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Подкатегория:" />
-        <ChoiceBox fx:id="subcategory" layoutX="104.0" layoutY="159.0" prefHeight="27.0" prefWidth="189.0">
+        <ChoiceBox fx:id="subcategory" layoutX="140.0" layoutY="159.0" prefHeight="27.0" prefWidth="189.0">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />

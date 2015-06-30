@@ -52,6 +52,11 @@
         <TextField layoutX="42.0" layoutY="247.0" prefWidth="102.0" />
         <Text layoutX="156.0" layoutY="266.0" scaleX="1.0" scaleY="0.9999937347040251" strokeType="OUTSIDE" strokeWidth="0.0" text="до" />
         <Text layoutX="23.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="от" />
+            <Text fx:id="city1" layoutX="18.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фильтр">
+               <font>
+                  <Font size="22.0" fx:id="x11" />
+               </font>
+            </Text>
       </children>
     </AnchorPane>
   </children>

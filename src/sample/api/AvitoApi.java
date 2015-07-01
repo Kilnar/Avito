@@ -1,17 +1,17 @@
 package sample.api;
 
-import org.jsoup.*;
-import org.jsoup.nodes.*;
-import org.jsoup.select.*;
-import org.jsoup.parser.*;
-import org.jsoup.safety.*;
-import org.jsoup.helper.*;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
-//import javax.ws.rs.core.*;
 import java.io.IOException;
-import java.net.*;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+
+//import javax.ws.rs.core.*;
 
 //import org.apache.commons.lang3.StringEscapeUtils;
 
@@ -29,7 +29,7 @@ public class AvitoApi {
     }
 
     /*
-     * Использование
+     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         AvitoApi avitoApi = new AvitoApi();
         try {
             List<AvitoAd> ads = avitoApi.getAdsFromRawQuery("ulyanovsk/avtomobili?p=2");
@@ -115,8 +115,8 @@ public class AvitoApi {
                 src = photo.attr("src");
             }
         }
-
         return src.isEmpty()? null : URI.create("http" + src);
+
     }
 
     private  String getAdDescription(URI adUri) throws IOException{
@@ -126,15 +126,6 @@ public class AvitoApi {
         itemParams.forEach(element -> {
             text.append(element.text() != null ? element.text() : "");
             text.append(System.lineSeparator());
-
-            /*Elements itemParamsA = element.getElementsByTag("a");
-            if (itemParamsA != null) {
-                itemParamsA.forEach(a -> {
-                    text.append(a.text());
-                    text.append(' ');
-                });
-                text.append(System.lineSeparator());
-            }*/
         });
 
         Elements descriptions = doc.select("div.description-text > div[itemprop=description]").first().getElementsByTag("p");
@@ -142,8 +133,6 @@ public class AvitoApi {
             text.append(p.text());
             text.append(System.lineSeparator());
         });
-
-
         return text.toString();
     }
 

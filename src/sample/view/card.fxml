@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -8,16 +9,16 @@
    <children>
       <Pane prefHeight="215.0" prefWidth="434.0">
          <children>
-            <ImageView fitHeight="85.0" fitWidth="120.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="foto" fitHeight="85.0" fitWidth="120.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/nophoto.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="itemName" layoutX="184.0" layoutY="7.0" text="Название" />
+            <Label fx:id="name" layoutX="184.0" layoutY="7.0" text="Название" />
             <Button layoutX="326.0" layoutY="176.0" mnemonicParsing="false" text="Подробнее" />
             <Label layoutX="148.0" layoutY="22.0" text="Цена" />
-            <Label layoutX="199.0" layoutY="22.0" text="4300" />
-            <Label alignment="TOP_LEFT" layoutX="148.0" layoutY="37.0" prefHeight="95.0" prefWidth="271.0" text="Это некое описание товара" />
+            <Label fx:id="price" layoutX="200.0" layoutY="22.0" text="4300" />
+            <Label fx:id="description" alignment="TOP_LEFT" layoutX="148.0" layoutY="48.0" prefHeight="92.0" prefWidth="280.0" text="Нет описания." wrapText="true" />
             <TextArea layoutX="14.0" layoutY="150.0" prefHeight="52.0" prefWidth="303.0" text="пока так коментирование" />
          </children>
       </Pane>

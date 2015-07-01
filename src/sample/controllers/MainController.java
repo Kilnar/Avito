@@ -39,7 +39,7 @@ public class MainController {
 
         AvitoApi avitoApi = new AvitoApi();
         try {
-            List<AvitoAd> data = avitoApi.getAdsFromRawQuery("https://www.avito.ru/ulyanovsk/avtomobili/vaz_lada?pmax=3000000&pmin=90000");
+            List<AvitoAd> data = avitoApi.getAdsFromRawQuery(httpQuery);
             observableList.setAll(data);
 
         } catch (IOException e) {

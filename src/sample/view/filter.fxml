@@ -12,14 +12,6 @@
       <children>
         <Button fx:id="toSearch" layoutX="277.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionSearch" prefHeight="27.0" prefWidth="68.0" text="Искать" />
         <ChoiceBox fx:id="citiescategory" layoutX="140.0" layoutY="74.0" prefHeight="26.999908447265625" prefWidth="189.0">
-          <items>
-            <FXCollections fx:factory="observableArrayList">
-              <String fx:value="Москва" />
-              <String fx:value="Казань" />
-              <String fx:value="Екатеринбург" />
-              <String fx:value="Челябинск" />
-            </FXCollections>
-          </items>
         </ChoiceBox>
         <Text fx:id="city" layoutX="17.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Город:">
           <font>

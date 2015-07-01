@@ -3,32 +3,44 @@ package sample.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.util.Callback;
+import sample.api.AvitoAd;
+import sample.api.AvitoApi;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.util.List;
 
 public class MainController {
 
     @FXML
-    private ListView<String> listView;
+    private ListView<AvitoAd> listView;
     private ObservableList observableList;
-    private ArrayList<String> stringArrayList;
+    private List<AvitoAd> stringArrayList;
 
     public MainController(){
         observableList = FXCollections.observableArrayList();
-        stringArrayList = new ArrayList<String>();
     }
     @FXML
     private void initialize() {
         setListView();
     }
     public void setListView(){
-        stringArrayList.add("String 1");
-        stringArrayList.add("String 2");
-        stringArrayList.add("String 3");
-        observableList.setAll(stringArrayList);
+
+        AvitoApi avitoApi = new AvitoApi();
+        try {
+            observableList.setAll(avitoApi.getAdsFromRawQuery("https://www.avito.ru/ulyanovsk/avtomobili/vaz_lada?i=1&pmax=3000000&pmin=90000"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         listView.setItems(observableList);
-        listView.setCellFactory(param -> new ListViewCell());
+        listView.setCellFactory(new Callback<ListView<AvitoAd>, ListCell<AvitoAd>>() {
+            @Override
+            public ListCell<AvitoAd> call(ListView<AvitoAd> param) {
+                return new ListViewCell();
+            }
+        });
     }
 
 }

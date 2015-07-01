@@ -1,14 +1,12 @@
 package sample.api;
 
-import org.jsoup.*;
-import org.jsoup.nodes.*;
-import org.jsoup.select.*;
-import org.jsoup.parser.*;
-import org.jsoup.safety.*;
-import org.jsoup.helper.*;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.net.*;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +26,7 @@ public class AvitoApi {
     }
 
     /*
-     * Использование
+     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
          try {
 
             List<AvitoAd> ads = avitoService.getAdsFromRawQuery("ulyanovsk/avtomobili?p=2");
@@ -41,6 +39,7 @@ public class AvitoApi {
             System.out.println(e.getMessage() != null ? e.getMessage() : "error");
         }
      */
+
     public List<AvitoAd> getAdsFromRawQuery(String query) throws IOException {
         Document doc = Jsoup.connect(hostURL.resolve(query).toURL().toString()).get();
         Elements items = doc.select("div.catalog-list div.item");
@@ -104,14 +103,6 @@ public class AvitoApi {
             text.append(element.text() != null ? element.text() : "");
             text.append(System.lineSeparator());
 
-            /*Elements itemParamsA = element.getElementsByTag("a");
-            if (itemParamsA != null) {
-                itemParamsA.forEach(a -> {
-                    text.append(a.text());
-                    text.append(' ');
-                });
-                text.append(System.lineSeparator());
-            }*/
         });
 
         Elements descriptions = doc.select("div.description-text > div[itemprop=description]").first().getElementsByTag("p");

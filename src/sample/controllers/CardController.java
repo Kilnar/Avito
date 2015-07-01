@@ -25,9 +25,9 @@ public class CardController{
             e.printStackTrace();
         }
     }
-    public void setInfo(String string)
-    {
-        itemName.setText(string);
+    public void setInfo(String name) {
+
+        itemName.setText(name);
     }
 
     public AnchorPane getItem()

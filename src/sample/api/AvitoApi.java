@@ -7,6 +7,7 @@ import org.jsoup.parser.*;
 import org.jsoup.safety.*;
 import org.jsoup.helper.*;
 
+//import javax.ws.rs.core.*;
 import java.io.IOException;
 import java.net.*;
 import java.util.ArrayList;
@@ -29,9 +30,9 @@ public class AvitoApi {
 
     /*
      * Использование
-         try {
-
-            List<AvitoAd> ads = avitoService.getAdsFromRawQuery("ulyanovsk/avtomobili?p=2");
+        AvitoApi avitoApi = new AvitoApi();
+        try {
+            List<AvitoAd> ads = avitoApi.getAdsFromRawQuery("ulyanovsk/avtomobili?p=2");
             for(AvitoAd ad : ads) {
                 System.out.println(ad);
             }
@@ -41,7 +42,7 @@ public class AvitoApi {
             System.out.println(e.getMessage() != null ? e.getMessage() : "error");
         }
      */
-    public List<AvitoAd> getAdsFromRawQuery(String query) throws IOException {
+    public List<AvitoAd> getAdsFromRawQuery(String query) throws IOException, URISyntaxException {
         Document doc = Jsoup.connect(hostURL.resolve(query).toURL().toString()).get();
         Elements items = doc.select("div.catalog-list div.item");
 
@@ -59,9 +60,31 @@ public class AvitoApi {
 
         return  ads;
     }
+    /*
+    AvitoApi avitoApi = new AvitoApi();
+        try {
+            List<AvitoAd> ads = avitoApi.getAds("ulyanovsk", 2, 1000000, 100000, false, "avtomobili");
+            for(AvitoAd ad : ads) {
+                System.out.println(ad);
+            }
 
-    /*public List<AvitoAd> getAds(String city, int page, Long minPrice, Long maxPrice, boolean onlyWithPhoto, String... categories) {
+            System.out.println(ads.size());
+        } catch(IOException e) {
+            System.out.println(e.getMessage() != null ? e.getMessage() : "error");
+        }
+     */
+    /*public List<AvitoAd> getAds(String city, int page, long maxPrice, long minPrice, boolean onlyWithPhoto, String... categories) throws IOException, URISyntaxException {
+        UriBuilder uriBuilder = UriBuilder
+                .fromUri("")
+                .segment(city)
+                .segment(categories)
+                .queryParam("p", page)
+                .queryParam("pmax", maxPrice)
+                .queryParam("pmin", minPrice)
+                .queryParam("i", onlyWithPhoto ? "1" : "0");
+        URI uri = uriBuilder.build();
 
+        return getAdsFromRawQuery(uri.toString());
     }*/
 
     private String getNameFromElement(Element element) {
@@ -82,7 +105,7 @@ public class AvitoApi {
         return  price;
     }
 
-    private URI getPhotoFromElement(Element element) {
+    private URI getPhotoFromElement(Element element) throws URISyntaxException {
         Element photo = element.select("div.b-photo > a.photo-wrapper > img").first();
         String src = "";
         if (photo != null) {
@@ -93,7 +116,7 @@ public class AvitoApi {
             }
         }
 
-        return URI.create(src);
+        return src.isEmpty()? null : URI.create("http" + src);
     }
 
     private  String getAdDescription(URI adUri) throws IOException{

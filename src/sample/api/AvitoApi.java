@@ -91,7 +91,6 @@ public class AvitoApi {
                 src = photo.attr("src");
             }
         }
-
         return URI.create(src);
     }
 
@@ -102,7 +101,6 @@ public class AvitoApi {
         itemParams.forEach(element -> {
             text.append(element.text() != null ? element.text() : "");
             text.append(System.lineSeparator());
-
         });
 
         Elements descriptions = doc.select("div.description-text > div[itemprop=description]").first().getElementsByTag("p");
@@ -110,8 +108,6 @@ public class AvitoApi {
             text.append(p.text());
             text.append(System.lineSeparator());
         });
-
-
         return text.toString();
     }
 

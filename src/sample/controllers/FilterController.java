@@ -14,6 +14,10 @@ import java.io.IOException;
 
 public class FilterController {
 
+    private void initialize() {
+
+    }
+
     public void actionSearch(ActionEvent actionEvent) {
         Parent parent = null;
         try {

@@ -19,8 +19,11 @@ import java.util.List;
 
 public class MainController {
 
-    public Button changeFilter;
-    public Button addFilter;
+    protected static String httpQuery;
+    @FXML
+    private Button changeFilter;
+    @FXML
+    private Button addFilter;
     @FXML
     private ListView<AvitoAd> listView;
     private ObservableList observableList;

@@ -12,11 +12,16 @@ import sun.rmi.runtime.Log;
 
 import javax.lang.model.element.Element;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 public class Main extends Application {
 
     private static String URL = "https://www.avito.ru/map";
+    private static String CitiesURL = "https://www.avito.ru/";
+
     private static String mainUrl = "http://www.avito.ru";
+
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
@@ -28,7 +33,8 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        parseCategories();
+        //parseCategories();
+        loadCities();
         launch(args);
     }
 
@@ -39,8 +45,8 @@ public class Main extends Application {
             for (org.jsoup.nodes.Element categor : categories) {
                 org.jsoup.nodes.Element title = categor.select("dt").first();
                 Elements _categories = categor.select("dd");
-                System.out.println(mainUrl+title.select("a").first().attr("href")); // address main categories
-                System.out.println("main" +"\t" + title.select("a").first().html()); // Name main categories
+                System.out.println(mainUrl + title.select("a").first().attr("href")); // address main categories
+                System.out.println("main" + "\t" + title.select("a").first().html()); // Name main categories
 
                 for (org.jsoup.nodes.Element element : _categories) {
                         org.jsoup.nodes.Element links = element.select("a").first();
@@ -49,11 +55,36 @@ public class Main extends Application {
                         String linkInnerH = links.html();
                         System.out.println("\t\t\t"+linkInnerH); // Name other categorie
                     }
+                System.out.println("sdfsdf");
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+
+    private static void loadCities() {
+        try {
+            Document doc  = Jsoup.connect(CitiesURL).get();
+            Elements cities = doc.select("div.col-2");
+            //System.out.println("\t\t" + cities);
+            //Elements _cities = cities.select("cities");
+
+            for (org.jsoup.nodes.Element city : cities) {
+                Elements city_ = city.select("*");
+                for (org.jsoup.nodes.Element _city : city_) {
+                    org.jsoup.nodes.Element links = _city.select("a").first();
+                    String linkHref = links.attr("href");
+                    System.out.println("\t\t" + linkHref); // address
+                    String linkInnerH = links.html();
+                    System.out.println("\t\t\t" + linkInnerH); // Name other cities
+                }
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

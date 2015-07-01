@@ -44,6 +44,7 @@ public class AvitoApi {
      */
     public List<AvitoAd> getAdsFromRawQuery(String query) throws IOException, URISyntaxException {
         Document doc = Jsoup.connect(hostURL.resolve(query).toURL().toString()).get();
+
         Elements items = doc.select("div.catalog-list div.item");
 
         ArrayList<AvitoAd> ads = new ArrayList<AvitoAd>();
@@ -115,7 +116,7 @@ public class AvitoApi {
                 src = photo.attr("src");
             }
         }
-        return src.isEmpty()? null : URI.create("http" + src);
+        return src.isEmpty()? null : URI.create("http:" + src);
 
     }
 

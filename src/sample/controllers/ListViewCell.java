@@ -14,8 +14,8 @@ public class ListViewCell extends ListCell<AvitoAd> {
         super.updateItem(item, empty);
         if (item != null){
             CardController cardController = new CardController();
-            Image img = new Image("http://best-iconki.ru/downloads/PNG/256/programms-0002-1.png");
-            cardController.setInfo(item.getName(), item.getDescription(), item.getPrice(),img);
+            Image img = new Image(item.getPhoto() == null ? "/sample/image/nophoto.jpg" : item.getPhoto().toString());
+            cardController.setInfo(item.getName(), item.getDescription(), item.getPrice(), img);
             setGraphic(cardController.getItem());
         }
     }

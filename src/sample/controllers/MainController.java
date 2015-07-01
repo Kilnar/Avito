@@ -14,6 +14,8 @@ import sample.api.AvitoAd;
 import sample.api.AvitoApi;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.List;
 
 public class MainController {
 
@@ -34,9 +36,12 @@ public class MainController {
 
         AvitoApi avitoApi = new AvitoApi();
         try {
-            observableList.setAll(avitoApi.getAdsFromRawQuery("https://www.avito.ru/ulyanovsk/avtomobili/vaz_lada?i=1&pmax=3000000&pmin=90000"));
+            List<AvitoAd> data = avitoApi.getAdsFromRawQuery("https://www.avito.ru/ulyanovsk/avtomobili/vaz_lada?pmax=3000000&pmin=90000");
+            observableList.setAll(data);
 
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
             e.printStackTrace();
         }
         listView.setItems(observableList);

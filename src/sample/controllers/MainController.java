@@ -2,7 +2,9 @@ package sample.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
@@ -14,6 +16,8 @@ import java.util.List;
 
 public class MainController {
 
+    public Button changeFilter;
+    public Button addFilter;
     @FXML
     private ListView<AvitoAd> listView;
     private ObservableList observableList;
@@ -43,4 +47,9 @@ public class MainController {
         });
     }
 
+    public void actionChangeFilter(ActionEvent actionEvent) {
+    }
+
+    public void actionAddFilter(ActionEvent actionEvent) {
+    }
 }

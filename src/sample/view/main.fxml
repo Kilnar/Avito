@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -15,7 +14,8 @@
           </items>
         </SplitMenuButton>
         <ListView fx:id="listView" layoutX="0.0" layoutY="68.0" prefHeight="547.0" prefWidth="521.0" />
-        <Button layoutX="427.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.9609375" prefWidth="80.0" text="Фильтры" />
+        <Button fx:id="changeFilter" layoutX="356.0" layoutY="20.0" mnemonicParsing="false" onAction="#actionChangeFilter" prefHeight="31.0" prefWidth="151.0" text="Изменить фильтр" />
+            <Button fx:id="addFilter" layoutX="192.0" layoutY="20.0" mnemonicParsing="false" onAction="#actionAddFilter" prefHeight="31.0" prefWidth="151.0" text="Добавить фильтр" />
       </children>
     </Pane>
   </children>

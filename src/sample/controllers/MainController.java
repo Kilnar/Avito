@@ -67,7 +67,22 @@ public class MainController {
         stageClose.close();
     }
 
+
+
     public void actionAddFilter(ActionEvent actionEvent) {
+        Stage stageClose = (Stage) addFilter.getScene().getWindow();
+        Parent parent = null;
+        try {
+            parent = FXMLLoader.load(getClass().getResource("/sample/view/newfilter.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(parent);
+            stage.setScene(scene);
+            stage.setTitle("AddFilter");
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        stageClose.close();
 
     }
 }

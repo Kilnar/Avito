@@ -20,9 +20,13 @@ import java.util.HashMap;
 
 public class FilterController {
 
+    @FXML
     public NumberTextField finishPrice;
+    @FXML
     public NumberTextField startPrice;
+    @FXML
     public ChoiceBox citiescategory;
+    @FXML
     public Button toSearch;
     //    map городов
     private HashMap<String, String> cityMap;
